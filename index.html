@@ -191,7 +191,7 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">TARGO Dataset</h2>
-        <img src="./static/images/data_overview.svg" alt="Data Overview" />
+        <img src="./static/images/data_overview_full.svg" alt="Data Overview" />
          <!-- <figure style="text-align: center;">
           <img src="./static/images/data_overview.svg" alt="Data Overview"/>
           <figcaption>TARGO-Synthetic training, TARGO-Synthetic test, TARGO-Real samples in various occlusion levels.</figcaption>
@@ -201,7 +201,7 @@
             We present a novel dataset, <strong>TARGO</strong>, to thoroughly investigate the occlusion challenge in robotic grasping. The synthetic dataset can be used to train and evaluate the target-driven grasping models under various occlusion levels, and the real-world one can be tested for zero-shot transfer to evaluate grasping performance in practice.
           </p>
           <p>
-            The <strong>TARGO-synthetic training and test</strong> datasets are generated using the physical simulator PyBullet, which samples collision-free grasps in a $30 \times 30 \times 30 \mathrm{~cm}^3$ tabletop workspace. We generated the packed scenes using 114 training and 16 test objects provided by VGN. In each <em>cluttered scene</em>, an object is selected as the target object, inducing a <em>single scene</em>, where only the target is on the table and all other occluders are removed. Given the single scene, <em>occlusion level</em> can be calculated (the percentage of the target object occluded by the occluders). Sampling grasps from single scenes helps grasp prediction, and the occlusion level can be used to evaluate the model's robustness to occlusion. The TARGO-Synthetic training dataset is available for download <a href="https://datasets.cvg.cit.tum.de/targo-benchmark/syn_train.tar.gz">here</a>.
+            The <strong>TARGO-synthetic training and test</strong> datasets are generated using the physical simulator PyBullet, which samples collision-free grasps in a $30 \times 30 \times 30 \mathrm{~cm}^3$ tabletop workspace. We generated the packed scenes using 114 training and 16 test objects provided by VGN. The TARGO-Synthetic training dataset is available for download <a href="https://datasets.cvg.cit.tum.de/targo-benchmark/syn_train.tar.gz">here</a>.
           </p>
           <p>
             The <strong>TARGO-Real dataset</strong> includes object models and object poses in scenes provided by DexYCB. Using the real-world observations, we created the corresponding scenes in PyBullet to evaluate various baseline methods.
@@ -227,11 +227,19 @@
       </div>
       <div class="column is-5">
         <h5 class="">Single Scene</h5>
-          <img src="./static/images/single_scene_rw.png" alt="single scene" />
+        <img src="./static/images/single_scene_rw.png" alt="single scene" />
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <p>
+          In our <strong>TARGO-synthetic training dataset</strong>, we sample grasps from both <strong>cluttered scenes</strong> and <strong>single scenes</strong>. In each <strong>cluttered scene</strong>, an object is selected as the target object, inducing a <strong>single scene</strong>, where only the target is on the table and all other occluders are removed. Given the single scene, <strong>occlusion level</strong> can be calculated (the percentage of the target object occluded by the occluders). Sampling grasps from single scenes helps grasp prediction, and the occlusion level can be used to evaluate the model's robustness to occlusion.
+        </p>
       </div>
     </div>
   </div>
 </section>
+
 
 <section class="section hero is-light">
   <div class="container is-max-desktop">
