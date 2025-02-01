@@ -223,17 +223,17 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-5">
         <h5 class="">Cluttered Scene</h5>
-        <img src="./static/images/cluttered_scene_rw.png" alt="cluttered scene" />
+        <img src="./static/images/sam_cluttered.png" alt="cluttered scene" />
       </div>
       <div class="column is-5">
         <h5 class="">Single Scene</h5>
-        <img src="./static/images/single_scene_rw.png" alt="single scene" />
+        <img src="./static/images/sam_single.png" alt="single scene" />
       </div>
     </div>
     <div class="columns is-centered">
       <div class="column is-four-fifths">
         <p>
-          In our <strong>TARGO-synthetic training dataset</strong>, we sample grasps from both <strong>cluttered scenes</strong> and <strong>single scenes</strong>. In each <strong>cluttered scene</strong>, an object is selected as the target object, inducing a <strong>single scene</strong>, where only the target is on the table and all other occluders are removed. Given the single scene, <strong>occlusion level</strong> can be calculated (the percentage of the target object occluded by the occluders). Sampling grasps from single scenes helps grasp prediction, and the occlusion level can be used to evaluate the model's robustness to occlusion.
+          In our <strong>TARGO-synthetic training dataset</strong>, we sample grasps from both <strong>cluttered scenes</strong> and <strong>single scenes</strong>. In each <strong>cluttered scene</strong>, an object is selected as the target object, inducing a <strong>single scene</strong>, where only the target is on the table and all other occluders are removed. Single scenes can be used to <em>sample grasps</em> to aid in prediction, and to compute the <em>occlusion level</em> to evaluate the model's robustness to occlusion. <strong>Occlusion level</strong> is defined as the percentage of the target object occluded by the occluders. E.g., The unoccluded pixels of cluttered and single scenes are overlaid with a blue mask, with 13973 and 25015 pixels, respectively. The <strong>visual occlusion level</strong> can thus be calculated as $1 - \frac{13973}{25015} = 0.441$.
         </p>
       </div>
     </div>
