@@ -1,358 +1,349 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
-  <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="TARGO: Benchmarking Target-driven Object Grasping under Occlusions">
-  <meta property="og:title" content="TARGO"/>
-  <meta property="og:description" content="TARGO: Benchmarking Target-driven Object Grasping under Occlusions"/>
-  <meta property="og:url" content="https://targo-benchmark.github.io"/>
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-  <meta property="og:image" content="static/image/reference.jpg" />
-  <meta property="og:image:width" content="1200"/>
-  <meta property="og:image:height" content="630"/>
-
-
-  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
-  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="description" content="TARGO and TARGO-Net: Benchmarking Target-driven Object Grasping under Occlusions">
+  <meta property="og:title" content="TARGO and TARGO-Net">
+  <meta property="og:description" content="Benchmarking Target-driven Object Grasping under Occlusions">
+  <meta property="og:url" content="https://targo-benchmark.github.io">
+  <meta property="og:image" content="https://targo-benchmark.github.io/static/images/reference.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:title" content="TARGO and TARGO-Net">
+  <meta name="twitter:description" content="Benchmarking Target-driven Object Grasping under Occlusions">
+  <meta name="twitter:image" content="https://targo-benchmark.github.io/static/images/reference.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <!-- Keywords for your paper to be indexed by-->
-  <meta name="keywords" content="TARGO: Benchmarking Target-driven Object Grasping under Occlusions">
+  <meta name="keywords" content="TARGO, TARGO-Net, target-driven grasping, object grasping, robotic grasping, occlusion, RGB-D">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
 
   <title>TARGO and TARGO-Net: Benchmarking Target-driven Object Grasping under Occlusions</title>
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-  rel="stylesheet">
-
   <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="static/css/index.css">
-
-  <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
   <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script src="static/js/bulma-carousel.min.js"></script>
-  <script src="static/js/bulma-slider.min.js"></script>
-  <script src="static/js/index.js"></script>
 </head>
 <body>
-
-
-  <section class="hero">
+  <section class="hero publication-header">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title">TARGO and TARGO-Net: Benchmarking Target-driven Object Grasping under Occlusions</h1>
+            <div class="publication-venue">Accepted at IJCV 2026</div>
+
             <div class="is-size-5 publication-authors">
-              <!-- Paper authors -->
-              <span class="author-block">
-                <a href="https://yan-xia.github.io" target="_blank">Yan Xia</a><sup>1*</sup>,
-              </span>
-              <span class="author-block">
-                <a href="https://randing2000.github.io" target="_blank">Ran Ding</a><sup>2*</sup>,
-              </span>
-              <span class="author-block">
-                <a href="https://scholar.google.com/citations?user=pcCR2lUAAAAJ" target="_blank">Ziyuan Qin</a><sup>2*</sup>,
-              </span>
-              <span class="author-block">
-                <a href="https://www.robots.ox.ac.uk/~guanqi" target="_blank">Guanqi Zhan</a><sup>4</sup>,
-              </span>
-              <span class="author-block">
-                <a href="https://www.cs.ox.ac.uk/people/kaichen.zhou" target="_blank">Kaichen Zhou</a><sup>4</sup>,
-              </span>
-              <span class="author-block">
-                <a href="https://scholar.google.com/citations?user=KOTg0mQAAAAJ&hl" target="_blank">Long Yang</a><sup>3</sup>,
-              </span><br>
-              <span class="author-block">
-                <a href="https://zsdonghao.github.io" target="_blank">Hao Dong</a><sup>3</sup>,
-              </span>
-              <span class="author-block">
-                <a href="https://cvg.cit.tum.de/members/cremers" target="_blank">Daniel Cremers</a><sup>2,5</sup>
-              </span>
+              <span class="author-block"><a href="https://yan-xia.github.io" target="_blank" rel="noopener">Yan Xia</a><sup>1*</sup>,</span>
+              <span class="author-block"><a href="https://randing2000.github.io" target="_blank" rel="noopener">Ran Ding</a><sup>2*</sup>,</span>
+              <span class="author-block"><a href="https://scholar.google.com/citations?user=pcCR2lUAAAAJ" target="_blank" rel="noopener">Ziyuan Qin</a><sup>2*</sup>,</span>
+              <span class="author-block"><a href="https://www.robots.ox.ac.uk/~guanqi" target="_blank" rel="noopener">Guanqi Zhan</a><sup>4</sup>,</span>
+              <span class="author-block"><a href="https://www.cs.ox.ac.uk/people/kaichen.zhou" target="_blank" rel="noopener">Kaichen Zhou</a><sup>4</sup>,</span>
+              <span class="author-block"><a href="https://scholar.google.com/citations?user=KOTg0mQAAAAJ&hl" target="_blank" rel="noopener">Long Yang</a><sup>3</sup>,</span><br>
+              <span class="author-block"><a href="https://zsdonghao.github.io" target="_blank" rel="noopener">Hao Dong</a><sup>3</sup>,</span>
+              <span class="author-block"><a href="https://cvg.cit.tum.de/members/cremers" target="_blank" rel="noopener">Daniel Cremers</a><sup>2,5</sup></span>
             </div>
 
-                  <div class="is-size-5 publication-authors">
-                    <span class="author-block"><sup>1</sup>University of Science and Technology of China,</span>&ensp;
-                    <span class="author-block"><sup>2</sup>Technical University of Munich,</span>&ensp;
-                    <span class="author-block"><sup>3</sup>CFCS, School of CS, Peking University,</span><br>
-                    <span class="author-block"><sup>4</sup>University of Oxford,</span>&ensp;
-                    <span class="author-block"><sup>5</sup>Munich Center for Machine Learning (MCML)</span>
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
-                  </div>
+            <div class="is-size-5 publication-authors affiliations">
+              <span class="author-block"><sup>1</sup>University of Science and Technology of China,</span>
+              <span class="author-block"><sup>2</sup>Technical University of Munich,</span>
+              <span class="author-block"><sup>3</sup>CFCS, School of CS, Peking University,</span><br>
+              <span class="author-block"><sup>4</sup>University of Oxford,</span>
+              <span class="author-block"><sup>5</sup>Munich Center for Machine Learning (MCML)</span>
+              <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
+            </div>
 
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                         <!-- Arxiv PDF link -->
-                      <span class="link-block">
-                        <a href="https://arxiv.org/abs/2407.06168" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
-
-                    <!-- Supplementary PDF link -->
-                    <!-- <span class="link-block">
-                      <a href="TODO" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span> -->
-
-                    <!-- Dataset Link. -->
-                    <span class="link-block">
-                      <a href="https://datasets.cvg.cit.tum.de/targo-benchmark/syn_train.tar.gz"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          
-                          <!-- <i class="fa-solid fa-file-code"></i> -->
-                            <!-- <i class="fa-solid fa-database"></i> -->
-                            <i class="fas fa-download"></i>
-                        </span>
-                        <span>Dataset</span>
-                      </a>
-                    </span>
-
-                  <!-- Github link -->
-                  <span class="link-block">
-                    <a href="https://github.com/TARGO-benchmark/TARGO" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
-                
-                  <!-- Video Link. -->
-                  <span class="link-block">
-                    <a href="https://youtu.be/VsQttlYvMqI?si=iKvIDC98_jcCMtMa"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                          <i class="fab fa-youtube"></i>
-                      </span>
-                      <span>Video</span>
-                    </a>
-                  </span>
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2407.06168" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://datasets.cvg.cit.tum.de/targo-benchmark/syn_train.tar.gz" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-download"></i></span>
+                  <span>Dataset</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/TARGO-benchmark/TARGO" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                </a>
+              </span>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Recent advances in predicting 6D grasp poses from a single depth image have led to promising performance in robotic grasping. However, previous grasping models face challenges in cluttered environments where nearby objects impact the target object's grasp. In this paper, we first establish a new benchmark dataset for TARget-driven Grasping under Occlusions, named <strong>TARGO</strong>. We make the following contributions:
-          </p>
-          <p>
-            <strong>1)</strong> We are the first to study the occlusion level in target-driven grasping.
-          </p>
-          <p>
-            <strong>2)</strong> We set up an evaluation benchmark consisting of large-scale synthetic data and part of real-world data, and we evaluated five grasp models and found that even the current SOTA model suffers when the occlusion level increases, leaving grasping under occlusion still a challenge.
-          </p>
-          <p>
-            <strong>3)</strong> We also generate a large-scale training dataset via a scalable pipeline, which can be used to boost the performance of grasping under occlusion and generalized to the real world.
-          </p>
-          <p>
-            <strong>4)</strong> We further propose a transformer-based grasping model involving a shape completion module, termed <strong>TARGO-Net</strong>, which performs most robustly as occlusion increases.
-          </p>
+  <section class="hero teaser">
+    <div class="container is-max-widescreen">
+      <div class="hero-body">
+        <div class="embedded-video presentation-video">
+          <!-- <iframe
+            src="https://www.youtube.com/embed/1aIxo5b2Ppw"
+            title="TARGO and TARGO-Net presentation video"
+            frameborder="0"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            allowfullscreen>
+          </iframe> -->
+          <iframe src="https://www.youtube.com/embed/1aIxo5b2Ppw?si=OMiEQ1C8tM85akQ1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <h2 class="subtitle has-text-centered">
+          Directly grasping a target object from a single RGB-D view, even when it is heavily occluded.
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Overview</h2>
+          <div class="content has-text-justified">
+            <p>
+              In real-world manipulation, the target object is often partially hidden by nearby objects. Rather than avoiding this challenge through next-best-view planning or occluder removal, <strong>TARGO</strong> studies direct target-driven grasping from a single RGB-D observation.
+            </p>
+            <p>
+              This project introduces an occlusion-aware benchmark for target-driven object grasping and a model named <strong>TARGO-Net</strong>. TARGO-Net segments the visible target, completes its missing geometry, reasons jointly over the completed target and the full cluttered scene, and predicts collision-free grasps that remain robust under high visual occlusion.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
 
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">TARGO Dataset</h2>
-        <img src="./static/images/data_overview_full.svg" alt="Data Overview" />
-         <!-- <figure style="text-align: center;">
-          <img src="./static/images/data_overview.svg" alt="Data Overview"/>
-          <figcaption>TARGO-Synthetic training, TARGO-Synthetic test, TARGO-Real samples in various occlusion levels.</figcaption>
-        </figure> -->
-        <div class="content has-text-justified">
-          <p>
-            We present a novel dataset, <strong>TARGO</strong>, to thoroughly investigate the occlusion challenge in robotic grasping. The synthetic dataset can be used to train and evaluate the target-driven grasping models under various occlusion levels, and the real-world one can be tested for zero-shot transfer to evaluate grasping performance in practice.
-          </p>
-          <p>
-            The <strong>TARGO-synthetic training and test</strong> datasets are generated using the physical simulator PyBullet, which samples collision-free grasps in a $30 \times 30 \times 30 \mathrm{~cm}^3$ tabletop workspace. We generated the packed scenes using 114 training and 16 test objects provided by VGN. The TARGO-Synthetic training dataset is available for download <a href="https://datasets.cvg.cit.tum.de/targo-benchmark/syn_train.tar.gz">here</a>.
-          </p>
-          <p>
-            The <strong>TARGO-Real dataset</strong> includes object models and object poses in scenes provided by DexYCB. Using the real-world observations, we created the corresponding scenes in PyBullet to evaluate various baseline methods.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="section is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-12">
-        <h2 class="title">Cluttered Scene vs. Single Scene</h2>
-      </div>
-    </div>
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-5">
-        <h5 class="">Cluttered Scene</h5>
-        <img src="./static/images/sam_cluttered.png" alt="cluttered scene" />
-      </div>
-      <div class="column is-5">
-        <h5 class="">Single Scene</h5>
-        <img src="./static/images/sam_single.png" alt="single scene" />
-      </div>
-    </div>
-    <div class="columns is-centered">
-      <div class="column is-four-fifths">
-        <p>
-          In our <strong>TARGO-synthetic training dataset</strong>, we sample grasps from both <strong>cluttered scenes</strong> and <strong>single scenes</strong>. In each <strong>cluttered scene</strong>, an object is selected as the target object, inducing a <strong>single scene</strong>, where only the target is on the table and all other occluders are removed. Single scenes can be used to <em>sample grasps</em> to aid in prediction, and to compute the <em>occlusion level</em> to evaluate the model's robustness to occlusion. <strong>Occlusion level</strong> is defined as the percentage of the target object occluded by the occluders. E.g., The unoccluded pixels of cluttered and single scenes are overlaid with a blue mask, with 13973 and 25015 pixels, respectively. The <strong>visual occlusion level</strong> can thus be calculated as $1 - \frac{13973}{25015} = 0.441$.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">TARGO-Synthetic Dataset Folder Contents</h2>
-        <div class="content has-text-justified">
-          <p>
-            The <a href="https://datasets.cvg.cit.tum.de/targo-benchmark/syn_train.tar.gz" style="color: #0065bd">compressed archive file</a> contains the following:
-          </p>
-          <ul>
-            <li>
-              <code>mesh_pose_dict/</code>: Each file is named by a unique <strong>scene ID</strong>, <strong>c / s</strong> (cluttered or single scene), and <strong>target ID</strong>. 
-              For instance, <code>0006ab82ea3f4b8aad9445b27f45487b_s_1.npz</code> represents a scene with ID <code>0006ab82ea3f4b8aad9445b27f45487b</code>, a single scene, and the target object is the first object in the scene. The file contains the object meshes' file path and the poses of objects in the scene.
-            </li>
-            <li>
-              <code>scenes/</code>: Same naming convention as the <code>mesh_pose_dict</code> folder. Each file contains the depth images, target masks, TSDF grids of the scene, and depth back-projected target points and occlusion levels.
-            </li>
-            <li>
-              <code>grasps.csv</code>: This file lists the scene IDs of cluttered or single scenes along with their associated 6DoF grasp poses, grasp widths, and grasp labels (1 for success, 0 for failure).
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
       <div class="columns is-centered">
-          <div class="content has-text-centered">
-            <h2>TARGO-Net Real-world Experiments in 2.5x Speed</h2>
+        <div class="column is-one-quarter">
+          <div class="contribution-box">
+            <h3>Occlusion-aware benchmark</h3>
+            <p>Grasping performance is evaluated as target visibility decreases.</p>
           </div>
+        </div>
+        <div class="column is-one-quarter">
+          <div class="contribution-box">
+            <h3>Single-scene data augmentation</h3>
+            <p>Training includes occlusion-induced failed grasps from single scenes.</p>
+          </div>
+        </div>
+        <div class="column is-one-quarter">
+          <div class="contribution-box">
+            <h3>Balanced offline test set</h3>
+            <p>Each occlusion level from 0 to 0.9 contains 1,000 scenes.</p>
+          </div>
+        </div>
+        <div class="column is-one-quarter">
+          <div class="contribution-box">
+            <h3>TARGO-Net Target-Scene Transformer</h3>
+            <p>Completed target geometry and scene context are fused with cross attention.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-widescreen">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-11">
+          <h2 class="title is-3">TARGO Dataset</h2>
+          <figure class="publication-figure dataset-overview-figure">
+            <img src="static/images/data_overview_full.svg" alt="TARGO dataset overview" loading="lazy" decoding="async">
+            <figcaption>TARGO-Synthetic training data, occlusion-balanced synthetic test scenes, and TARGO-Real scenes.</figcaption>
+          </figure>
+          <div class="content has-text-justified dataset-overview-text">
+            <p>
+              <strong>TARGO-Synthetic</strong> is constructed using VGN objects in PyBullet. Random placement naturally produces many low-occlusion scenes, which are useful for training but insufficient for stress-testing occlusion robustness.
+            </p>
+            <p>
+              To avoid overestimating performance on easy scenes, the benchmark includes a balanced test set with <strong>1,000 scenes for every occlusion level from 0 to 0.9</strong>. TARGO-Real further evaluates transfer to real-world cluttered grasping with a Panda arm setup.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Single Scene & Visual Occlusion Level</h2>
+          <div class="content has-text-justified">
+            <p>
+              For each cluttered scene, a target object is selected to induce a corresponding <strong>single scene</strong>, where the same target is observed from the same camera pose but all occluders are removed. The visual occlusion level is computed by comparing visible target pixels in the cluttered scene with target pixels in the single scene.
+            </p>
+          </div>
+        </div>
       </div>
 
-      <!-- Create a single row with 3 columns for the videos -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-5">
+          <h5 class="title is-5">Cluttered Scene</h5>
+          <img class="rounded-image" src="static/images/sam_cluttered.png" alt="Cluttered scene" loading="lazy" decoding="async">
+        </div>
+        <div class="column is-5">
+          <h5 class="title is-5">Single Scene</h5>
+          <img class="rounded-image" src="static/images/sam_single.png" alt="Single scene" loading="lazy" decoding="async">
+        </div>
+      </div>
+
       <div class="columns is-centered">
-        <!-- First video: TARGO-Net vs. GIGA -->
-        <div class="column is-8">
-          <div class="content has-text-centered">
-            <h4 class="title is-4">TARGO-Net vs. GIGA</h4>
-            <div class="publication-video">
-              <!-- Youtube embed code here -->
-              <iframe src="https://www.youtube.com/embed/VsQttlYvMqI?si=obYQQNvPjKZ1ou9S" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            </div>
+        <div class="column is-four-fifths">
+          <div class="content has-text-justified">
+            <p>
+              For example, if 13973 target pixels are visible in the cluttered scene and 25015 pixels are visible in the single scene, the visual occlusion level is <strong>1 - 13973 / 25015 = 0.441</strong>.
+            </p>
           </div>
         </div>
-
-        <!-- Second video: TARGO-Net Successful Grasps -->
-        <!-- <div class="column is-4">
-          <div class="content has-text-centered">
-            <h4 class="title is-4">TARGO-Net Successful Grasps</h4>
-            <div class="publication-video">
-              <iframe src="https://www.youtube.com/embed/cy_XdFF7hks?si=Gevp98CbN_F5PIU2" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            </div>
-          </div>
-        </div>
-         -->
-    </div>
-  </div>
-</section>
-
-<!-- Paper poster -->
-<!-- <section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
       </div>
     </div>
-  </section> -->
-<!--End paper poster -->
+  </section>
 
-
-<!--BibTex citation -->
-  <!-- <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre><code>BibTex Code Here</code></pre>
+  <section class="section">
+    <div class="container is-max-widescreen">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Single Scene Data Augmentation</h2>
+        </div>
+      </div>
+      <div class="augmentation-figures">
+        <div class="augmentation-venn">
+          <math class="venn-set-label" display="block" aria-label="C subseteq S subseteq G">
+            <mi>C</mi>
+            <mo>&subseteq;</mo>
+            <mi>S</mi>
+            <mo>&subseteq;</mo>
+            <mi>G</mi>
+          </math>
+          <figure class="publication-figure">
+            <img src="static/images/single_scene_augmentation.png" alt="Venn diagram of successful grasps in single and cluttered scenes" loading="lazy" decoding="async">
+          </figure>
+        </div>
+        <div class="augmentation-plot">
+          <figure class="publication-figure">
+            <img src="static/images/single_scene_data_aug.png" alt="Single-scene data augmentation results across occlusion levels" loading="lazy" decoding="async">
+          </figure>
+        </div>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-three-fifths">
+          <div class="content has-text-justified augmentation-description">
+            <p>
+              Let <strong>C</strong> denote successful grasps in the cluttered scene and <strong>S</strong> denote successful grasps in the corresponding single scene. The set <strong>S \ C</strong> captures grasps that are feasible for the isolated target but fail once occluders are present.
+            </p>
+            <p>
+              Training with these occlusion-induced failures teaches the model how surrounding objects constrain feasible grasps, improving baseline methods by at least 5% and TARGO-Net by about 10%.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
-</section> -->
-<!--End BibTex citation -->
+  </section>
 
+  <section class="section is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Benchmark Findings</h2>
+          <figure class="publication-figure">
+            <img src="static/images/synthetic_benchmark_results.png" alt="Synthetic benchmark results across occlusion levels" loading="lazy" decoding="async">
+            <figcaption>Grasp success rate decreases as visual occlusion increases. TARGO-Net remains the most stable under high occlusion.</figcaption>
+          </figure>
+          <div class="content has-text-justified">
+            <p>
+              On the balanced synthetic test set, existing state-of-the-art methods such as VGN, GIGA, EdgeGraspNet, and ICGNet show a clear performance drop as occlusion increases. TARGO-Net drops by only about 7% even at extreme occlusion levels, while other methods drop by roughly 20% or more.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-12">
+          <h2 class="title is-3">TARGO-Net</h2>
+          <figure class="publication-figure">
+            <img src="static/images/targo_net_architecture.png" alt="TARGO-Net architecture" loading="lazy" decoding="async">
+            <figcaption>TARGO-Net completes the visible target, fuses target and scene features with the Target-Scene Transformer, and predicts grasp quality, orientation, and gripper width.</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <div class="content has-text-justified">
+            <p>
+              Given an RGB-D input, TARGO-Net first segments the visible target and completes its missing geometry. Scene and completed target point features are encoded with a 1D CNN, then fused by the <strong>Target-Scene Transformer (TST)</strong> with cross attention.
+            </p>
+            <p>
+              The fused sparse 3D features are converted to dense grids, projected into 2D feature planes, and refined by a 2D U-Net. An implicit affordance decoder predicts grasp quality, orientation, and gripper width for each grasp center, after which the highest-quality collision-free grasp is selected.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Real-world Experiments</h2>
+          <div class="content has-text-justified">
+            <p>
+              In real-world Panda arm experiments, the performance gap becomes even clearer. Baselines such as GIGA decrease by about 40% from easy to hard scenes, while TARGO-Net remains robust with only about a 13% drop.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="embedded-video real-world-video">
+        <!-- <iframe
+          src="https://www.youtube.com/embed/VsQttlYvMqI"
+          title="TARGO-Net collision-free grasps demo"
+          frameborder="0"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          allowfullscreen>
+        </iframe> -->
+        <iframe src="https://www.youtube.com/embed/VsQttlYvMqI?si=-tfgEoyj-EXFKajj&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">TARGO-Synthetic Dataset Contents</h2>
+          <div class="content has-text-justified">
+            <p>
+              The <a href="https://datasets.cvg.cit.tum.de/targo-benchmark/syn_train.tar.gz">compressed archive file</a> contains:
+            </p>
+            <ul>
+              <li><code>mesh_pose_dict/</code>: object mesh paths and object poses for each scene.</li>
+              <li><code>scenes/</code>: depth images, target masks, TSDF grids, target points, and occlusion levels.</li>
+              <li><code>grasps.csv</code>: scene IDs, 6DoF grasp poses, grasp widths, and grasp labels.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page. This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page follows the style of the <a href="https://nerfies.github.io" target="_blank" rel="noopener">Nerfies</a> project page and the Academic Project Page template. This website is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</footer>
-
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
-
-    <!-- End of Statcounter Code -->
-
-  </body>
-  </html>
+  </footer>
+</body>
+</html>

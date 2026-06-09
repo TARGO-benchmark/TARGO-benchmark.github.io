@@ -1,137 +1,301 @@
+:root {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --link-blue: hsl(204, 86%, 53%);
+  --targo-blue: #0065bd;
+  --soft-bg: #f5f7fa;
+  --border: #e4e8ee;
+}
+
 body {
-  font-family: 'Noto Sans', sans-serif;
-}
-
-
-.footer .icon-link {
-    font-size: 25px;
-    color: #000;
-}
-
-.link-block a {
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-.dnerf {
-  font-variant: small-caps;
-}
-
-
-.teaser .hero-body {
-  padding-top: 0;
-  padding-bottom: 3rem;
-}
-
-.teaser {
-  font-family: 'Google Sans', sans-serif;
-}
-
-
-.publication-title {
-}
-
-.publication-banner {
-  max-height: parent;
-
-}
-
-.publication-banner video {
-  position: relative;
-  left: auto;
-  top: auto;
-  transform: none;
-  object-fit: fit;
+  font-family: var(--font-sans);
 }
 
 .publication-header .hero-body {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
 }
 
 .publication-title {
-    font-family: 'Google Sans', sans-serif;
-}
-
-.publication-authors {
-    font-family: 'Google Sans', sans-serif;
+  font-family: var(--font-sans);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 
 .publication-venue {
-    color: #555;
-    width: fit-content;
-    font-weight: bold;
-}
-
-.publication-awards {
-    color: #ff3860;
-    width: fit-content;
-    font-weight: bolder;
+  display: inline-block;
+  margin: 0.25rem 0 1rem;
+  padding: 0.35rem 0.95rem;
+  border-radius: 999px;
+  color: #b31b1b;
+  background: #faeeee;
+  font-size: 1.12rem;
+  font-weight: 700;
 }
 
 .publication-authors {
+  font-family: var(--font-sans);
 }
 
 .publication-authors a {
-   color: hsl(204, 86%, 53%) !important;
+  color: var(--link-blue) !important;
 }
 
 .publication-authors a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
+}
+
+.affiliations {
+  margin-top: 0.55rem;
+  color: #4a4a4a;
 }
 
 .author-block {
   display: inline-block;
 }
 
-.publication-banner img {
-}
-
-.publication-authors {
-  /*color: #4286f4;*/
-}
-
-.publication-video {
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding-bottom: 56.25%;
-
-    overflow: hidden;
-    border-radius: 10px !important;
-}
-
-.publication-video iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.publication-body img {
-}
-
-.results-carousel {
-  overflow: hidden;
-}
-
-.results-carousel .item {
-  margin: 5px;
-  overflow: hidden;
-  padding: 20px;
-  font-size: 0;
-}
-
-.results-carousel video {
-  margin: 0;
-}
-
-.slider-pagination .slider-page {
-  background: #000000;
-}
-
-.eql-cntrb { 
+.eql-cntrb {
   font-size: smaller;
 }
 
+.publication-links {
+  margin-top: 1.25rem;
+}
 
+.link-block {
+  display: inline-block;
+  margin: 0.25rem;
+}
 
+.link-block a {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.teaser .hero-body {
+  padding-top: 0.5rem;
+  padding-bottom: 3rem;
+}
+
+.teaser .subtitle {
+  max-width: 850px;
+  margin: 1.5rem auto 0;
+  color: #363636;
+  font-size: 1.25rem;
+  line-height: 1.4;
+}
+
+.embedded-video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000;
+  box-shadow: 0 0.35rem 1rem rgba(10, 10, 10, 0.08);
+}
+
+.embedded-video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.presentation-video {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.section {
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+
+.section.is-light,
+.hero.is-light {
+  background-color: var(--soft-bg);
+}
+
+.content p {
+  margin-bottom: 1rem;
+}
+
+.contribution-box {
+  height: 100%;
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  text-align: left;
+  box-shadow: 0 0.35rem 1rem rgba(10, 10, 10, 0.04);
+}
+
+.contribution-box h3 {
+  margin-bottom: 0.5rem;
+  color: #222;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.contribution-box p {
+  color: #555;
+  font-size: 0.94rem;
+  line-height: 1.45;
+}
+
+.publication-figure {
+  margin: 1rem auto 1.5rem;
+  text-align: center;
+}
+
+.publication-figure img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.publication-figure figcaption {
+  max-width: 880px;
+  margin: 0.75rem auto 0;
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.compact-figure {
+  max-width: 480px;
+}
+
+.dataset-overview-figure {
+  max-width: 1040px;
+}
+
+.dataset-overview-text {
+  max-width: 780px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.augmentation-figures {
+  display: grid;
+  grid-template-columns: minmax(300px, 410px) minmax(460px, 610px);
+  gap: 2.25rem;
+  align-items: start;
+  justify-content: center;
+  max-width: 1060px;
+  margin: 0.75rem auto 0;
+}
+
+.augmentation-figures .publication-figure {
+  margin: 0;
+}
+
+.augmentation-venn,
+.augmentation-plot {
+  display: flex;
+  justify-content: center;
+}
+
+.augmentation-venn {
+  flex-direction: column;
+  align-items: center;
+}
+
+.venn-set-label {
+  width: 100%;
+  max-width: 410px;
+  margin-bottom: 0.45rem;
+  color: #0a0a0a;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.65rem;
+  font-weight: 400;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.augmentation-venn .publication-figure {
+  max-width: 410px;
+}
+
+.augmentation-plot .publication-figure {
+  max-width: 610px;
+}
+
+.augmentation-venn img,
+.augmentation-plot img {
+  border-radius: 4px;
+}
+
+.augmentation-description {
+  margin-top: 1.75rem;
+  color: #4a4a4a;
+  line-height: 1.55;
+}
+
+.rounded-image {
+  border-radius: 8px;
+  box-shadow: 0 0.35rem 1rem rgba(10, 10, 10, 0.08);
+}
+
+.result-video {
+  width: 100%;
+  border-radius: 8px;
+  background: #000;
+  box-shadow: 0 0.35rem 1rem rgba(10, 10, 10, 0.08);
+}
+
+.real-world-video {
+  max-width: 860px;
+  margin: 1.75rem auto 0;
+}
+
+.video-direct-link {
+  margin: 0.65rem 0 0;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.video-direct-link a {
+  color: var(--targo-blue);
+  font-weight: 600;
+}
+
+.video-direct-link a:hover {
+  text-decoration: underline;
+}
+
+code {
+  color: #16466f;
+  background-color: #edf4fb;
+}
+
+.footer {
+  padding: 3rem 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .publication-title {
+    font-size: 2.15rem !important;
+  }
+
+  .publication-header .hero-body {
+    padding-top: 2rem;
+  }
+
+  .section {
+    padding-top: 2.75rem;
+    padding-bottom: 2.75rem;
+  }
+
+  .augmentation-figures {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    max-width: 560px;
+  }
+
+  .augmentation-venn .publication-figure,
+  .augmentation-plot .publication-figure {
+    max-width: 100%;
+  }
+
+}
