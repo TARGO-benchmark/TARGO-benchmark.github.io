@@ -29,7 +29,7 @@
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title">TARGO and TARGO-Net: Benchmarking Target-driven Object Grasping under Occlusions</h1>
-            <div class="publication-venue">Accepted at IJCV 2026</div>
+            <div class="publication-venue">Published at International Journal of Computer Vision (IJCV) 2026</div>
 
             <div class="is-size-5 publication-authors">
               <span class="author-block"><a href="https://yan-xia.github.io" target="_blank" rel="noopener">Yan Xia</a><sup>1*</sup>,</span>
@@ -59,15 +59,34 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://datasets.cvg.cit.tum.de/targo-benchmark/syn_train.tar.gz" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="fas fa-download"></i></span>
-                  <span>Dataset</span>
+                <a href="https://github.com/targo-benchmark/targo" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://github.com/TARGO-benchmark/TARGO" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="fab fa-github"></i></span>
-                  <span>Code</span>
+                <a href="https://huggingface.co/randing2000/TARGO-Net" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-cube"></i></span>
+                  <span>Model</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/randing2000/TARGO" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-database"></i></span>
+                  <span>Dataset</span>
+                </a>
+              </span>
+              <br>
+              <span class="link-block">
+                <a href="https://youtu.be/1aIxo5b2Ppw" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-video"></i></span>
+                  <span>Video (YouTube)</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://www.bilibili.com/video/BV1G7E36KEuA/" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-video"></i></span>
+                  <span>Video (Bilibili)</span>
                 </a>
               </span>
             </div>
@@ -80,16 +99,7 @@
   <section class="hero teaser">
     <div class="container is-max-widescreen">
       <div class="hero-body">
-        <div class="embedded-video presentation-video">
-          <!-- <iframe
-            src="https://www.youtube.com/embed/1aIxo5b2Ppw"
-            title="TARGO and TARGO-Net presentation video"
-            frameborder="0"
-            allow="autoplay; encrypted-media; picture-in-picture"
-            allowfullscreen>
-          </iframe> -->
-          <iframe src="https://www.youtube.com/embed/1aIxo5b2Ppw?si=OMiEQ1C8tM85akQ1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
+        <div class="embedded-video presentation-video" id="presentation-video"></div>
         <h2 class="subtitle has-text-centered">
           Directly grasping a target object from a single RGB-D view, even when it is heavily occluded.
         </h2>
@@ -312,26 +322,6 @@
     </div>
   </section>
 
-  <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">TARGO-Synthetic Dataset Contents</h2>
-          <div class="content has-text-justified">
-            <p>
-              The <a href="https://datasets.cvg.cit.tum.de/targo-benchmark/syn_train.tar.gz">compressed archive file</a> contains:
-            </p>
-            <ul>
-              <li><code>mesh_pose_dict/</code>: object mesh paths and object poses for each scene.</li>
-              <li><code>scenes/</code>: depth images, target masks, TSDF grids, target points, and occlusion levels.</li>
-              <li><code>grasps.csv</code>: scene IDs, 6DoF grasp poses, grasp widths, and grasp labels.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <footer class="footer">
     <div class="container">
       <div class="columns is-centered">
@@ -345,5 +335,56 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var el = document.getElementById('presentation-video');
+      if (!el) return;
+
+      var YOUTUBE_ID = '1aIxo5b2Ppw';
+      var BILIBILI_BVID = 'BV1G7E36KEuA';
+
+      function addPlayer(region) {
+        var bilibili = region === 'bilibili';
+        var iframe = document.createElement('iframe');
+        if (bilibili) {
+          iframe.src = 'https://player.bilibili.com/player.html?bvid=' + BILIBILI_BVID + '&page=1&high_quality=1&danmaku=0';
+          iframe.title = 'TARGO and TARGO-Net presentation video (Bilibili)';
+        } else {
+          iframe.src = 'https://www.youtube.com/embed/' + YOUTUBE_ID;
+          iframe.title = 'TARGO and TARGO-Net presentation video (YouTube)';
+          iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+          iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+        }
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('scrolling', 'no');
+        iframe.setAttribute('allowfullscreen', 'true');
+        el.innerHTML = '';
+        el.appendChild(iframe);
+      }
+
+      // Probe whether YouTube is actually reachable and fall back to Bilibili if
+      // it is not. Reachability is the real signal -- a visitor's timezone or
+      // location says nothing about whether YouTube loads for them (VPNs,
+      // corporate networks, etc.).
+      var probe = new Image();
+      var settled = false;
+      function fallback() {
+        if (settled) return;
+        settled = true;
+        addPlayer('bilibili');
+      }
+      probe.onload = function () {
+        if (settled) return;
+        settled = true;
+        addPlayer('youtube');
+      };
+      probe.onerror = fallback;
+      probe.src = 'https://i.ytimg.com/vi/' + YOUTUBE_ID + '/default.jpg';
+      setTimeout(function () {
+        if (!settled) fallback();
+      }, 2500);
+    })();
+  </script>
 </body>
 </html>
