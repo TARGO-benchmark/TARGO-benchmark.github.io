@@ -77,17 +77,17 @@
                 </a>
               </span>
               <br>
-              <span class="link-block">
-                <a href="https://youtu.be/1aIxo5b2Ppw" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="fas fa-video"></i></span>
-                  <span>Video (YouTube)</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href="https://www.bilibili.com/video/BV1G7E36KEuA/" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="fas fa-video"></i></span>
-                  <span>Video (Bilibili)</span>
-                </a>
+              <span class="link-block video-source-block">
+                <span class="video-source-toggle" role="group" aria-label="Choose video source">
+                  <button type="button" class="video-source-btn is-active" data-source="youtube" aria-pressed="true">
+                    <span class="icon"><i class="fab fa-youtube"></i></span>
+                    <span>YouTube</span>
+                  </button>
+                  <button type="button" class="video-source-btn" data-source="bilibili" aria-pressed="false">
+                    <span class="icon"><i class="fas fa-tv"></i></span>
+                    <span>Bilibili</span>
+                  </button>
+                </span>
               </span>
             </div>
           </div>
@@ -309,16 +309,7 @@
         </div>
       </div>
 
-      <div class="embedded-video real-world-video">
-        <!-- <iframe
-          src="https://www.youtube.com/embed/VsQttlYvMqI"
-          title="TARGO-Net collision-free grasps demo"
-          frameborder="0"
-          allow="autoplay; encrypted-media; picture-in-picture"
-          allowfullscreen>
-        </iframe> -->
-        <iframe src="https://www.youtube.com/embed/VsQttlYvMqI?si=-tfgEoyj-EXFKajj&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>
+      <div class="embedded-video real-world-video" id="real-world-video"></div>
     </div>
   </section>
 
@@ -338,52 +329,93 @@
 
   <script>
     (function () {
-      var el = document.getElementById('presentation-video');
-      if (!el) return;
+      var VIDEOS = [
+        {
+          id: 'presentation-video',
+          youtubeId: '1aIxo5b2Ppw',
+          bilibiliBvid: 'BV1G7E36KEuA',
+          youtubeTitle: 'TARGO and TARGO-Net presentation video (YouTube)',
+          bilibiliTitle: 'TARGO and TARGO-Net presentation video (Bilibili)'
+        },
+        {
+          id: 'real-world-video',
+          youtubeId: 'VsQttlYvMqI',
+          bilibiliBvid: 'BV1aqhR6sEcv',
+          youtubeTitle: 'TARGO-Net real-world experiments (YouTube)',
+          bilibiliTitle: 'TARGO-Net real-world experiments (Bilibili)'
+        }
+      ];
 
-      var YOUTUBE_ID = '1aIxo5b2Ppw';
-      var BILIBILI_BVID = 'BV1G7E36KEuA';
+      var sourceButtons = document.querySelectorAll('.video-source-btn');
+      if (!sourceButtons.length) return;
 
-      function addPlayer(region) {
-        var bilibili = region === 'bilibili';
+      function addPlayer(container, video, source) {
+        var bilibili = source === 'bilibili';
         var iframe = document.createElement('iframe');
         if (bilibili) {
-          iframe.src = 'https://player.bilibili.com/player.html?bvid=' + BILIBILI_BVID + '&page=1&high_quality=1&danmaku=0';
-          iframe.title = 'TARGO and TARGO-Net presentation video (Bilibili)';
+          iframe.src = 'https://player.bilibili.com/player.html?bvid=' + video.bilibiliBvid + '&page=1&high_quality=1&danmaku=0';
+          iframe.title = video.bilibiliTitle;
         } else {
-          iframe.src = 'https://www.youtube.com/embed/' + YOUTUBE_ID;
-          iframe.title = 'TARGO and TARGO-Net presentation video (YouTube)';
+          iframe.src = 'https://www.youtube.com/embed/' + video.youtubeId;
+          iframe.title = video.youtubeTitle;
           iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
           iframe.referrerPolicy = 'strict-origin-when-cross-origin';
         }
         iframe.setAttribute('frameborder', '0');
         iframe.setAttribute('scrolling', 'no');
         iframe.setAttribute('allowfullscreen', 'true');
-        el.innerHTML = '';
-        el.appendChild(iframe);
+        container.innerHTML = '';
+        container.appendChild(iframe);
       }
 
-      // Probe whether YouTube is actually reachable and fall back to Bilibili if
-      // it is not. Reachability is the real signal -- a visitor's timezone or
-      // location says nothing about whether YouTube loads for them (VPNs,
-      // corporate networks, etc.).
-      var probe = new Image();
-      var settled = false;
-      function fallback() {
-        if (settled) return;
-        settled = true;
-        addPlayer('bilibili');
+      function updateToggle(source) {
+        sourceButtons.forEach(function (button) {
+          var active = button.getAttribute('data-source') === source;
+          button.classList.toggle('is-active', active);
+          button.setAttribute('aria-pressed', active ? 'true' : 'false');
+        });
       }
-      probe.onload = function () {
+
+      function renderAll(source) {
+        VIDEOS.forEach(function (video) {
+          var el = document.getElementById(video.id);
+          if (el) addPlayer(el, video, source);
+        });
+        updateToggle(source);
+      }
+
+      sourceButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          var source = button.getAttribute('data-source');
+          if (source) renderAll(source);
+        });
+      });
+
+      // Probe whether the YouTube embed host is actually reachable and fall back
+      // to Bilibili if it is not. Reachability is the real signal -- a visitor's
+      // timezone or location says nothing about whether YouTube loads for them
+      // (VPNs, corporate networks, etc.).
+      var controller = new AbortController();
+      var settled = false;
+      function choose(source) {
         if (settled) return;
         settled = true;
-        addPlayer('youtube');
-      };
-      probe.onerror = fallback;
-      probe.src = 'https://i.ytimg.com/vi/' + YOUTUBE_ID + '/default.jpg';
-      setTimeout(function () {
-        if (!settled) fallback();
-      }, 2500);
+        renderAll(source);
+      }
+      var probeTimer = setTimeout(function () {
+        controller.abort();
+      }, 3000);
+      fetch('https://www.youtube.com/favicon.ico', {
+        mode: 'no-cors',
+        cache: 'no-store',
+        signal: controller.signal
+      }).then(function () {
+        clearTimeout(probeTimer);
+        choose('youtube');
+      }).catch(function () {
+        clearTimeout(probeTimer);
+        choose('bilibili');
+      });
     })();
   </script>
 </body>
